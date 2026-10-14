@@ -1,0 +1,20 @@
+{
+  "title": "My widget",
+  "description": "One sentence on what this widget shows.",
+  "x-use-when": "The kind of request or data this widget is the best fit for.",
+  "x-dont-use-when": "Nearby cases where another widget is better, and which one to use instead.",
+  "x-sizes": ["M", "L", "full"],
+  "x-default-size": "M",
+  "x-requires-charts": false,
+  "x-checks": [
+    "Describe each rule checks.js enforces, so it shows up in the docs."
+  ],
+  "type": "object",
+  "required": ["value"],
+  "properties": {
+    "value": {
+      "type": "number",
+      "description": "Describe what goes here clearly enough that Computer can't misread it."
+    }
+  }
+}

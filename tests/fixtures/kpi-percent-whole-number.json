@@ -1,0 +1,34 @@
+{
+  "description": "Percent given as 45 instead of 0.45",
+  "widgets": [
+    {
+      "type": "kpi",
+      "id": "a",
+      "title": "Open AR",
+      "value": 45,
+      "format": "percent"
+    },
+    {
+      "type": "kpi",
+      "id": "kpi-0",
+      "title": "Open AR",
+      "value": 412300,
+      "format": "currency"
+    },
+    {
+      "type": "kpi",
+      "id": "kpi-1",
+      "title": "Open AR",
+      "value": 412300,
+      "format": "currency"
+    },
+    {
+      "type": "kpi",
+      "id": "kpi-2",
+      "title": "Open AR",
+      "value": 412300,
+      "format": "currency"
+    }
+  ],
+  "expect_warning": "Percent values are fractions"
+}

@@ -1,0 +1,83 @@
+/*
+  Design tokens: the single source of visual truth for every dashboard.
+
+  Widgets and the renderer never hardcode colors, fonts, or sizes. They use
+  these variables, so restyling the toolkit means editing this file only.
+
+  PLACEHOLDER: these values are a neutral starting point. They get replaced
+  with VLCM's design language in roadmap stage 2. When you change the font,
+  update both the @import line and --dk-font-sans.
+
+  The renderer can only load fonts from fonts.googleapis.com (Computer's
+  sandbox blocks other hosts).
+*/
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap");
+
+:root {
+  /* Surfaces and ink */
+  --dk-color-page: #eef1f4;
+  --dk-color-surface: #ffffff;
+  --dk-color-ink: #172030;
+  --dk-color-ink-muted: #556173;
+  --dk-color-ink-subtle: #7d8796;
+  --dk-color-rule: #d9dee5;
+  --dk-color-rule-soft: #edf0f3;
+
+  /* Accent: emphasis only (sparklines, single-series charts) */
+  --dk-color-accent: #1f5f8b;
+  --dk-color-accent-soft: #e4eef5;
+
+  /* Status: reserved for meaning, never decoration */
+  --dk-color-good: #1e7a46;
+  --dk-color-good-soft: #e3f2e9;
+  --dk-color-warning: #8f5b00;
+  --dk-color-warning-soft: #fbf0d9;
+  --dk-color-critical: #b42318;
+  --dk-color-critical-soft: #fbe6e4;
+  --dk-color-neutral: #556173;
+  --dk-color-neutral-soft: #edf0f3;
+
+  /* Data series, always used in this order. Series 1 matches the accent. */
+  --dk-series-1: #1f5f8b;
+  --dk-series-2: #3a9e9a;
+  --dk-series-3: #8a6bbf;
+  --dk-series-4: #c98a2e;
+  --dk-series-5: #8792a2;
+  --dk-series-6: #b8577a;
+
+  /* Type: one family, tabular figures everywhere numbers appear */
+  --dk-font-sans: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --dk-text-xs: 0.75rem;     /* 12px  axis labels, notes */
+  --dk-text-sm: 0.8125rem;   /* 13px  table cells, subtitles */
+  --dk-text-base: 0.9375rem; /* 15px  widget titles */
+  --dk-text-lg: 1.25rem;     /* 20px */
+  --dk-text-xl: 1.75rem;     /* 28px  dashboard title */
+  --dk-text-kpi: 2.25rem;    /* 36px  KPI values */
+  --dk-weight-regular: 400;
+  --dk-weight-medium: 500;
+  --dk-weight-semibold: 600;
+  --dk-weight-bold: 700;
+  --dk-leading-tight: 1.15;
+  --dk-leading-normal: 1.45;
+
+  /* Space (4px base) */
+  --dk-space-1: 0.25rem;
+  --dk-space-2: 0.5rem;
+  --dk-space-3: 0.75rem;
+  --dk-space-4: 1rem;
+  --dk-space-5: 1.5rem;
+  --dk-space-6: 2rem;
+  --dk-space-7: 3rem;
+
+  /* Shape */
+  --dk-radius-card: 8px;
+  --dk-radius-stamp: 4px;
+  --dk-radius-pill: 999px;
+  --dk-border-width: 1px;
+  --dk-rule-heavy: 2px;
+
+  /* Layout */
+  --dk-grid-gap: 1rem;
+  --dk-page-max: 90rem;
+  --dk-chart-height: 280px;
+}

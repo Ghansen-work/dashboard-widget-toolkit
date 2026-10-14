@@ -1,0 +1,88 @@
+[
+  {
+    "id": "single-metric",
+    "prompt": "What's our total open AR right now, and how does it compare to last month? Build it as a dashboard.",
+    "expect": {
+      "must_include": ["kpi"],
+      "has": [{ "type": "kpi", "field": "format", "equals": "currency" }]
+    },
+    "manual_checks": ["The KPI delta treats a decrease in AR as good (good_direction: down)."]
+  },
+  {
+    "id": "ranking",
+    "prompt": "Show me closed-won revenue by account manager for Q3.",
+    "expect": {
+      "must_include": ["bar_chart"],
+      "must_not_include": ["table"],
+      "has": [
+        { "type": "bar_chart", "field": "format", "equals": "currency" },
+        { "type": "bar_chart", "field": "orientation", "equals": "horizontal", "default": "vertical" }
+      ]
+    },
+    "manual_checks": ["Bars are sorted largest first."]
+  },
+  {
+    "id": "record-list",
+    "prompt": "List every open ticket older than 30 days with the customer, owner, days open, and priority.",
+    "expect": {
+      "must_include": ["table"],
+      "must_not_include": ["bar_chart"],
+      "has": [
+        { "type": "table", "field": "columns.*.format", "includes": "status" },
+        { "type": "table", "field": "columns.*.format", "includes": "integer" }
+      ]
+    },
+    "manual_checks": ["Priority shows as colored pills with sensible levels (high = critical)."]
+  },
+  {
+    "id": "percent-values",
+    "prompt": "Chart win rate by account manager for Q3.",
+    "expect": {
+      "must_include": ["bar_chart"],
+      "has": [{ "type": "bar_chart", "field": "format", "equals": "percent" }]
+    },
+    "manual_checks": ["Values were passed as fractions (0.38), so the axis reads 38%, not 3,800%."]
+  },
+  {
+    "id": "trend-over-time",
+    "prompt": "Show monthly bookings for the last 6 months.",
+    "expect": {
+      "must_include": ["bar_chart"],
+      "has": [
+        { "type": "bar_chart", "field": "orientation", "equals": "vertical", "default": "vertical" },
+        { "type": "bar_chart", "field": "categories", "length": 6 }
+      ]
+    },
+    "manual_checks": ["Months are in time order, oldest first."]
+  },
+  {
+    "id": "account-review",
+    "prompt": "Build an account review for our biggest customer: revenue year to date, open pipeline, revenue by quarter, and their open tickets.",
+    "expect": {
+      "must_include": ["kpi", "kpi", "bar_chart", "table"],
+      "max_widgets": 10
+    },
+    "manual_checks": ["KPIs sit in their own row at the top, then the chart, then the table."]
+  },
+  {
+    "id": "no-matching-widget",
+    "prompt": "Show our customers on a map by state.",
+    "expect": {
+      "must_not_include": [],
+      "max_widgets": 6
+    },
+    "manual_checks": [
+      "Computer tells the user there is no map widget.",
+      "It offers or uses the closest alternative (customers by state as a bar chart or table) instead of inventing a widget or writing its own HTML."
+    ]
+  },
+  {
+    "id": "no-data",
+    "prompt": "Show open tickets for an account that has none.",
+    "expect": {
+      "must_include": ["table"],
+      "has": [{ "type": "table", "field": "rows", "length": 0 }]
+    },
+    "manual_checks": ["The table shows a specific empty_message instead of a blank card or invented rows."]
+  }
+]

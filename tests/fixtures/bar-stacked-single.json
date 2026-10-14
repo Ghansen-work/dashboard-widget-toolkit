@@ -1,0 +1,30 @@
+{
+  "description": "Stacked chart with one series",
+  "widgets": [
+    {
+      "type": "bar_chart",
+      "id": "b1",
+      "title": "Revenue by rep",
+      "size": "full",
+      "format": "currency",
+      "orientation": "horizontal",
+      "categories": [
+        "A. Lee",
+        "B. Diaz",
+        "C. Kim"
+      ],
+      "series": [
+        {
+          "name": "Revenue",
+          "values": [
+            300,
+            200,
+            100
+          ]
+        }
+      ],
+      "stacked": true
+    }
+  ],
+  "expect_warning": "stacking a single series"
+}

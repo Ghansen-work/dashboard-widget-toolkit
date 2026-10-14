@@ -1,0 +1,202 @@
+{
+  "title": "Sales overview, Q3 2026",
+  "subtitle": "All account managers. All figures are sample data.",
+  "data_as_of": "2026-10-12T07:30:00-06:00",
+  "sources": [
+    "DevRev",
+    "Business Central"
+  ],
+  "widgets": [
+    {
+      "type": "kpi",
+      "id": "bookings",
+      "title": "Bookings",
+      "value": 4826000,
+      "format": "currency",
+      "delta": {
+        "value": 0.067,
+        "label": "vs Q2 2026"
+      },
+      "sparkline": [
+        3920000,
+        4105000,
+        4388000,
+        4212000,
+        4523000,
+        4826000
+      ]
+    },
+    {
+      "type": "kpi",
+      "id": "win-rate",
+      "title": "Win rate",
+      "value": 0.384,
+      "format": "percent",
+      "delta": {
+        "value": 0.021,
+        "label": "vs Q2 2026"
+      }
+    },
+    {
+      "type": "kpi",
+      "id": "avg-deal",
+      "title": "Average deal size",
+      "value": 38420,
+      "format": "currency",
+      "delta": {
+        "value": -0.042,
+        "label": "vs Q2 2026"
+      }
+    },
+    {
+      "type": "kpi",
+      "id": "overdue-ar",
+      "title": "AR over 60 days",
+      "value": 218700,
+      "format": "currency",
+      "delta": {
+        "value": 0.18,
+        "label": "vs last month",
+        "good_direction": "down"
+      }
+    },
+    {
+      "type": "bar_chart",
+      "id": "bookings-by-rep",
+      "title": "Bookings by account manager",
+      "subtitle": "New business and renewals",
+      "size": "full",
+      "format": "currency",
+      "orientation": "horizontal",
+      "stacked": true,
+      "categories": [
+        "A. Whitaker",
+        "D. Nguyen",
+        "S. Patel",
+        "R. Castillo",
+        "L. Brennan",
+        "K. Osei",
+        "T. Halvorsen",
+        "E. Moreau"
+      ],
+      "series": [
+        {
+          "name": "New business",
+          "values": [
+            612000,
+            548000,
+            497500,
+            402300,
+            388100,
+            296400,
+            251800,
+            198700
+          ]
+        },
+        {
+          "name": "Renewals",
+          "values": [
+            244000,
+            286500,
+            218000,
+            263900,
+            172400,
+            201700,
+            143300,
+            100700
+          ]
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "id": "top-open-deals",
+      "title": "Largest open deals closing this quarter",
+      "columns": [
+        {
+          "key": "deal",
+          "label": "Deal"
+        },
+        {
+          "key": "account",
+          "label": "Account"
+        },
+        {
+          "key": "owner",
+          "label": "Owner"
+        },
+        {
+          "key": "amount",
+          "label": "Amount",
+          "format": "currency"
+        },
+        {
+          "key": "probability",
+          "label": "Probability",
+          "format": "percent"
+        },
+        {
+          "key": "close_date",
+          "label": "Close date",
+          "format": "date"
+        },
+        {
+          "key": "stage",
+          "label": "Stage",
+          "format": "status"
+        }
+      ],
+      "rows": [
+        {
+          "deal": "District-wide device refresh",
+          "account": "Bonneville County Schools",
+          "owner": "A. Whitaker",
+          "amount": 1240000,
+          "probability": 0.7,
+          "close_date": "2026-12-15",
+          "stage": {
+            "text": "Negotiation",
+            "level": "good"
+          }
+        },
+        {
+          "deal": "Data center modernization",
+          "account": "Wasatch Medical Group",
+          "owner": "S. Patel",
+          "amount": 865000,
+          "probability": 0.5,
+          "close_date": "2026-12-01",
+          "stage": {
+            "text": "Proposal",
+            "level": "neutral"
+          }
+        },
+        {
+          "deal": "Campus network upgrade",
+          "account": "Great Basin College",
+          "owner": "D. Nguyen",
+          "amount": 512400,
+          "probability": 0.4,
+          "close_date": "2026-11-20",
+          "stage": {
+            "text": "Stalled",
+            "level": "warning"
+          }
+        },
+        {
+          "deal": "Managed security services",
+          "account": "City of Ogden",
+          "owner": "R. Castillo",
+          "amount": 298000,
+          "probability": 0.25,
+          "close_date": "2026-12-30",
+          "stage": {
+            "text": "At risk",
+            "level": "critical"
+          }
+        }
+      ],
+      "total_count": 37
+    }
+  ]
+}

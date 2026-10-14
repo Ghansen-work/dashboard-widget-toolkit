@@ -1,0 +1,15 @@
+{
+  "name": "dashboard-toolkit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Widget toolkit and DevRev Computer skill for building consistent, snapshot dashboards from a validated JSON spec.",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "node scripts/build.js",
+    "validate": "node scripts/validate.js",
+    "examples": "node scripts/build-examples.js",
+    "docs": "node scripts/docs.js",
+    "check-case": "node scripts/check-case.js",
+    "test": "node --test"
+  }
+}

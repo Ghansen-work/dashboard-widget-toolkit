@@ -1,0 +1,68 @@
+{
+  "title": "Bar chart",
+  "description": "Compares values across categories, or across a short run of periods, with one or more series.",
+  "x-use-when": "Comparing a measure across categories (revenue by rep, tickets by priority) or a short run of periods (revenue by quarter). Use horizontal bars for rankings and long names.",
+  "x-dont-use-when": "There is only one number (use kpi), the user needs exact values for many records (use table), or there are more than 30 categories (aggregate to top N first).",
+  "x-sizes": ["M", "L", "full"],
+  "x-default-size": "M",
+  "x-requires-charts": true,
+  "x-checks": [
+    "Error when a series has a different number of values than there are categories.",
+    "Error when two series share a name.",
+    "Warns when percent values look like whole numbers (45 instead of 0.45).",
+    "Warns when vertical bars have more than 8 categories or labels longer than 14 characters (use horizontal).",
+    "Warns when stacked is true with only one series."
+  ],
+  "type": "object",
+  "required": ["categories", "series"],
+  "properties": {
+    "categories": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 30,
+      "items": { "type": "string", "minLength": 1, "maxLength": 40 },
+      "description": "Category labels in display order (top to bottom for horizontal bars). Sort rankings largest first; keep periods in time order."
+    },
+    "series": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 6,
+      "description": "One entry per measure. Each series has exactly one value per category, in the same order as categories.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "values"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 30,
+            "description": "Series name shown in the legend and tooltip, e.g. \"Revenue\"."
+          },
+          "values": {
+            "type": "array",
+            "items": { "type": ["number", "null"] },
+            "description": "Raw numbers aligned with categories. Use null for a missing value, never 0."
+          }
+        }
+      }
+    },
+    "format": {
+      "type": "string",
+      "enum": ["number", "integer", "currency", "percent"],
+      "default": "number",
+      "description": "How values are displayed on the axis and tooltip. percent expects fractions: 0.45 shows as 45%."
+    },
+    "orientation": {
+      "type": "string",
+      "enum": ["vertical", "horizontal"],
+      "default": "vertical",
+      "description": "vertical for periods and a few short categories; horizontal for rankings, many categories, or long names."
+    },
+    "stacked": {
+      "type": "boolean",
+      "default": false,
+      "description": "Stack series into one bar per category. Only when the series add up to a meaningful total (new + renewal revenue)."
+    }
+  }
+}

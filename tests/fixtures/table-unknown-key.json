@@ -1,0 +1,34 @@
+{
+  "description": "Row field that isn't a column",
+  "widgets": [
+    {
+      "type": "table",
+      "id": "t1",
+      "title": "Open tickets",
+      "columns": [
+        {
+          "key": "ticket",
+          "label": "Ticket"
+        },
+        {
+          "key": "days_open",
+          "label": "Days open",
+          "format": "integer"
+        },
+        {
+          "key": "priority",
+          "label": "Priority",
+          "format": "status"
+        }
+      ],
+      "rows": [
+        {
+          "ticket": "TKT-1",
+          "days_open": 12,
+          "owner": "J. Ortiz"
+        }
+      ]
+    }
+  ],
+  "expect_error": "\"owner\" is not a column key"
+}

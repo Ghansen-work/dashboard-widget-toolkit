@@ -1,0 +1,179 @@
+{
+  "description": "A full 50-row table without total_count",
+  "widgets": [
+    {
+      "type": "table",
+      "id": "t1",
+      "title": "Open tickets",
+      "columns": [
+        {
+          "key": "ticket",
+          "label": "Ticket"
+        },
+        {
+          "key": "days_open",
+          "label": "Days open",
+          "format": "integer"
+        },
+        {
+          "key": "priority",
+          "label": "Priority",
+          "format": "status"
+        }
+      ],
+      "rows": [
+        {
+          "ticket": "TKT-0"
+        },
+        {
+          "ticket": "TKT-1"
+        },
+        {
+          "ticket": "TKT-2"
+        },
+        {
+          "ticket": "TKT-3"
+        },
+        {
+          "ticket": "TKT-4"
+        },
+        {
+          "ticket": "TKT-5"
+        },
+        {
+          "ticket": "TKT-6"
+        },
+        {
+          "ticket": "TKT-7"
+        },
+        {
+          "ticket": "TKT-8"
+        },
+        {
+          "ticket": "TKT-9"
+        },
+        {
+          "ticket": "TKT-10"
+        },
+        {
+          "ticket": "TKT-11"
+        },
+        {
+          "ticket": "TKT-12"
+        },
+        {
+          "ticket": "TKT-13"
+        },
+        {
+          "ticket": "TKT-14"
+        },
+        {
+          "ticket": "TKT-15"
+        },
+        {
+          "ticket": "TKT-16"
+        },
+        {
+          "ticket": "TKT-17"
+        },
+        {
+          "ticket": "TKT-18"
+        },
+        {
+          "ticket": "TKT-19"
+        },
+        {
+          "ticket": "TKT-20"
+        },
+        {
+          "ticket": "TKT-21"
+        },
+        {
+          "ticket": "TKT-22"
+        },
+        {
+          "ticket": "TKT-23"
+        },
+        {
+          "ticket": "TKT-24"
+        },
+        {
+          "ticket": "TKT-25"
+        },
+        {
+          "ticket": "TKT-26"
+        },
+        {
+          "ticket": "TKT-27"
+        },
+        {
+          "ticket": "TKT-28"
+        },
+        {
+          "ticket": "TKT-29"
+        },
+        {
+          "ticket": "TKT-30"
+        },
+        {
+          "ticket": "TKT-31"
+        },
+        {
+          "ticket": "TKT-32"
+        },
+        {
+          "ticket": "TKT-33"
+        },
+        {
+          "ticket": "TKT-34"
+        },
+        {
+          "ticket": "TKT-35"
+        },
+        {
+          "ticket": "TKT-36"
+        },
+        {
+          "ticket": "TKT-37"
+        },
+        {
+          "ticket": "TKT-38"
+        },
+        {
+          "ticket": "TKT-39"
+        },
+        {
+          "ticket": "TKT-40"
+        },
+        {
+          "ticket": "TKT-41"
+        },
+        {
+          "ticket": "TKT-42"
+        },
+        {
+          "ticket": "TKT-43"
+        },
+        {
+          "ticket": "TKT-44"
+        },
+        {
+          "ticket": "TKT-45"
+        },
+        {
+          "ticket": "TKT-46"
+        },
+        {
+          "ticket": "TKT-47"
+        },
+        {
+          "ticket": "TKT-48"
+        },
+        {
+          "ticket": "TKT-49"
+        }
+      ]
+    }
+  ],
+  "expect_warning": "Add total_count"
+}

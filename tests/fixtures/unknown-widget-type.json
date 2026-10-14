@@ -1,0 +1,11 @@
+{
+  "description": "A widget type that doesn't exist",
+  "widgets": [
+    {
+      "type": "pie_chart",
+      "id": "p",
+      "title": "Share"
+    }
+  ],
+  "expect_error": "\"pie_chart\" is not a widget in this toolkit"
+}

@@ -1,0 +1,60 @@
+{
+  "description": "Two widgets with the same id",
+  "widgets": [
+    {
+      "type": "bar_chart",
+      "id": "x",
+      "title": "Revenue by rep",
+      "size": "full",
+      "format": "currency",
+      "orientation": "horizontal",
+      "categories": [
+        "A. Lee",
+        "B. Diaz",
+        "C. Kim"
+      ],
+      "series": [
+        {
+          "name": "Revenue",
+          "values": [
+            300,
+            200,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "id": "x",
+      "title": "Open tickets",
+      "columns": [
+        {
+          "key": "ticket",
+          "label": "Ticket"
+        },
+        {
+          "key": "days_open",
+          "label": "Days open",
+          "format": "integer"
+        },
+        {
+          "key": "priority",
+          "label": "Priority",
+          "format": "status"
+        }
+      ],
+      "rows": [
+        {
+          "ticket": "TKT-1",
+          "days_open": 12,
+          "priority": {
+            "text": "High",
+            "level": "critical"
+          }
+        }
+      ]
+    }
+  ],
+  "expect_error": "Widget ids must be unique"
+}

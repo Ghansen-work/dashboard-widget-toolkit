@@ -1,0 +1,50 @@
+{
+  "description": "Row that doesn't fill 12 columns",
+  "widgets": [
+    {
+      "type": "kpi",
+      "id": "kpi-0",
+      "title": "Open AR",
+      "value": 412300,
+      "format": "currency"
+    },
+    {
+      "type": "kpi",
+      "id": "kpi-1",
+      "title": "Open AR",
+      "value": 412300,
+      "format": "currency"
+    },
+    {
+      "type": "kpi",
+      "id": "kpi-2",
+      "title": "Open AR",
+      "value": 412300,
+      "format": "currency"
+    },
+    {
+      "type": "bar_chart",
+      "id": "b1",
+      "title": "Revenue by rep",
+      "size": "full",
+      "format": "currency",
+      "orientation": "horizontal",
+      "categories": [
+        "A. Lee",
+        "B. Diaz",
+        "C. Kim"
+      ],
+      "series": [
+        {
+          "name": "Revenue",
+          "values": [
+            300,
+            200,
+            100
+          ]
+        }
+      ]
+    }
+  ],
+  "expect_warning": "fills 9 of 12 columns"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "my_widget",
+  "id": "my-widget",
+  "title": "My widget",
+  "value": 42
+}

@@ -1,0 +1,67 @@
+{
+  "title": "Table",
+  "description": "Rows of records with typed columns, including status pills. Shows at most 50 rows.",
+  "x-use-when": "The user needs to see individual records or exact values: open tickets, top deals, overdue invoices, a list of accounts.",
+  "x-dont-use-when": "The point is a comparison or trend (use bar_chart) or a single total (use kpi). Don't dump raw data: aggregate or pick the top N.",
+  "x-sizes": ["M", "L", "full"],
+  "x-default-size": "full",
+  "x-requires-charts": false,
+  "x-checks": [
+    "Error when a row uses a key that isn't a column key.",
+    "Error when a cell's value doesn't match its column's format.",
+    "Error when a status cell isn't {\"text\": ..., \"level\": ...}.",
+    "Error when two columns share a key, or total_count is smaller than the number of rows.",
+    "Warns when there are 50 rows and no total_count (the user can't tell if the list was cut off).",
+    "Warns when percent values look like whole numbers (45 instead of 0.45)."
+  ],
+  "type": "object",
+  "required": ["columns", "rows"],
+  "properties": {
+    "columns": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 8,
+      "description": "Columns in display order. Put the identifying column (name, ticket) first.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["key", "label"],
+        "properties": {
+          "key": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{0,39}$",
+            "description": "Lowercase key used in each row, e.g. \"customer\"."
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 30,
+            "description": "Column header in sentence case, e.g. \"Days open\"."
+          },
+          "format": {
+            "type": "string",
+            "enum": ["text", "number", "integer", "currency", "percent", "date", "status"],
+            "default": "text",
+            "description": "Cell type. Numbers are right-aligned. date expects \"YYYY-MM-DD\". status expects {\"text\": \"Overdue\", \"level\": \"critical\"}."
+          }
+        }
+      }
+    },
+    "rows": {
+      "type": "array",
+      "maxItems": 50,
+      "items": { "type": "object" },
+      "description": "Row objects keyed by column key, already sorted in the order to display. A missing key or null shows a dash. An empty array shows empty_message."
+    },
+    "total_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total matching records before the top-N cut. When larger than the row count, the table shows \"Showing 25 of 1,840 rows\"."
+    },
+    "empty_message": {
+      "type": "string",
+      "maxLength": 80,
+      "description": "Shown when rows is empty, e.g. \"No open tickets older than 30 days.\""
+    }
+  }
+}

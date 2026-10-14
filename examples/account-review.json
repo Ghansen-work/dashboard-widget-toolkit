@@ -1,0 +1,63 @@
+{
+  "title": "Cedar Valley Schools account review, Q3 2026",
+  "subtitle": "Prepared for the quarterly business review. All figures are sample data.",
+  "data_as_of": "2026-10-12T09:14:00-06:00",
+  "sources": ["DevRev", "Business Central"],
+  "widgets": [
+    {
+      "type": "kpi", "id": "revenue-ytd", "title": "Revenue, year to date",
+      "value": 1184300, "format": "currency",
+      "delta": { "value": 0.124, "label": "vs same period last year" },
+      "sparkline": [612000, 704500, 798100, 911800, 1002400, 1184300]
+    },
+    {
+      "type": "kpi", "id": "open-pipeline", "title": "Open pipeline",
+      "value": 386500, "format": "currency",
+      "delta": { "value": 42000, "format": "value", "label": "vs last month" }
+    },
+    {
+      "type": "kpi", "id": "open-tickets", "title": "Open support tickets",
+      "value": 14, "format": "integer",
+      "delta": { "value": 3, "format": "value", "label": "vs last month", "good_direction": "down" }
+    },
+    {
+      "type": "kpi", "id": "renewal-rate", "title": "License renewal rate",
+      "value": 0.92, "format": "percent",
+      "delta": { "value": -0.015, "label": "vs last year" },
+      "note": "Share of expiring licenses renewed within 30 days."
+    },
+    {
+      "type": "bar_chart", "id": "revenue-by-quarter", "title": "Revenue by quarter",
+      "subtitle": "Hardware and services, last 6 quarters", "size": "M",
+      "format": "currency", "stacked": true,
+      "categories": ["Q2 2025", "Q3 2025", "Q4 2025", "Q1 2026", "Q2 2026", "Q3 2026"],
+      "series": [
+        { "name": "Hardware", "values": [182000, 240500, 198300, 156900, 214700, 263100] },
+        { "name": "Services", "values": [64200, 71800, 69500, 73100, 80400, 88900] }
+      ]
+    },
+    {
+      "type": "bar_chart", "id": "spend-by-category", "title": "Spend by category, year to date",
+      "size": "M", "format": "currency", "orientation": "horizontal",
+      "categories": ["Chromebooks and laptops", "Network infrastructure", "Managed services", "Classroom AV", "Software licensing", "Security"],
+      "series": [{ "name": "Spend", "values": [512400, 238900, 176300, 121700, 84600, 50400] }]
+    },
+    {
+      "type": "table", "id": "aging-tickets", "title": "Open tickets older than 30 days",
+      "columns": [
+        { "key": "ticket", "label": "Ticket" },
+        { "key": "summary", "label": "Summary" },
+        { "key": "owner", "label": "Owner" },
+        { "key": "opened", "label": "Opened", "format": "date" },
+        { "key": "days_open", "label": "Days open", "format": "integer" },
+        { "key": "priority", "label": "Priority", "format": "status" }
+      ],
+      "rows": [
+        { "ticket": "TKT-4821", "summary": "Wireless dropouts in the east wing", "owner": "J. Ortiz", "opened": "2026-08-14", "days_open": 59, "priority": { "text": "High", "level": "critical" } },
+        { "ticket": "TKT-4907", "summary": "Projector replacement, room 214", "owner": "M. Reyes", "opened": "2026-08-28", "days_open": 45, "priority": { "text": "Medium", "level": "warning" } },
+        { "ticket": "TKT-4950", "summary": "License count mismatch on renewal quote", "owner": "J. Ortiz", "opened": "2026-09-04", "days_open": 38, "priority": { "text": "Low", "level": "neutral" } }
+      ],
+      "total_count": 3
+    }
+  ]
+}

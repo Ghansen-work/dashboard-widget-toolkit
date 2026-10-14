@@ -1,0 +1,21 @@
+{
+  "type": "table",
+  "id": "aging-tickets",
+  "title": "Open tickets older than 30 days",
+  "size": "full",
+  "columns": [
+    { "key": "ticket", "label": "Ticket" },
+    { "key": "customer", "label": "Customer" },
+    { "key": "owner", "label": "Owner" },
+    { "key": "opened", "label": "Opened", "format": "date" },
+    { "key": "days_open", "label": "Days open", "format": "integer" },
+    { "key": "priority", "label": "Priority", "format": "status" }
+  ],
+  "rows": [
+    { "ticket": "TKT-4821", "customer": "Cedar Valley Schools", "owner": "J. Ortiz", "opened": "2026-08-14", "days_open": 59, "priority": { "text": "High", "level": "critical" } },
+    { "ticket": "TKT-4907", "customer": "Bonneville County", "owner": "M. Reyes", "opened": "2026-08-28", "days_open": 45, "priority": { "text": "Medium", "level": "warning" } },
+    { "ticket": "TKT-4950", "customer": "Wasatch Medical Group", "owner": "J. Ortiz", "opened": "2026-09-04", "days_open": 38, "priority": { "text": "Low", "level": "neutral" } }
+  ],
+  "total_count": 3,
+  "empty_message": "No open tickets older than 30 days."
+}

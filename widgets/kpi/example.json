@@ -1,0 +1,10 @@
+{
+  "type": "kpi",
+  "id": "open-ar",
+  "title": "Open AR",
+  "size": "S",
+  "value": 412300,
+  "format": "currency",
+  "delta": { "value": -0.083, "label": "vs last month", "good_direction": "down" },
+  "sparkline": [468000, 455200, 449800, 431000, 425600, 412300]
+}

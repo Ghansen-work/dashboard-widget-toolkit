@@ -1,0 +1,38 @@
+{
+  "description": "A list of values crammed into a KPI",
+  "widgets": [
+    {
+      "type": "kpi",
+      "id": "a",
+      "title": "Open AR",
+      "value": [
+        1,
+        2,
+        3
+      ],
+      "format": "currency"
+    },
+    {
+      "type": "kpi",
+      "id": "kpi-0",
+      "title": "Open AR",
+      "value": 412300,
+      "format": "currency"
+    },
+    {
+      "type": "kpi",
+      "id": "kpi-1",
+      "title": "Open AR",
+      "value": 412300,
+      "format": "currency"
+    },
+    {
+      "type": "kpi",
+      "id": "kpi-2",
+      "title": "Open AR",
+      "value": 412300,
+      "format": "currency"
+    }
+  ],
+  "expect_error": "expected number or null, got a list"
+}

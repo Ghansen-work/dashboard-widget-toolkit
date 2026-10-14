@@ -1,0 +1,28 @@
+{
+  "description": "Series has fewer values than categories",
+  "widgets": [
+    {
+      "type": "bar_chart",
+      "id": "b1",
+      "title": "Revenue by rep",
+      "size": "full",
+      "format": "currency",
+      "orientation": "horizontal",
+      "categories": [
+        "A. Lee",
+        "B. Diaz",
+        "C. Kim"
+      ],
+      "series": [
+        {
+          "name": "Revenue",
+          "values": [
+            300,
+            200
+          ]
+        }
+      ]
+    }
+  ],
+  "expect_error": "has 2 values but there are 3 categories"
+}

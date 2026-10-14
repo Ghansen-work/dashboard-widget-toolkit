@@ -1,0 +1,29 @@
+{
+  "description": "Vertical bars with long labels",
+  "widgets": [
+    {
+      "type": "bar_chart",
+      "id": "b1",
+      "title": "Revenue by rep",
+      "size": "full",
+      "format": "currency",
+      "orientation": "vertical",
+      "categories": [
+        "Chromebooks and laptops",
+        "Network infrastructure",
+        "Managed services"
+      ],
+      "series": [
+        {
+          "name": "Revenue",
+          "values": [
+            300,
+            200,
+            100
+          ]
+        }
+      ]
+    }
+  ],
+  "expect_warning": "\"orientation\": \"horizontal\""
+}

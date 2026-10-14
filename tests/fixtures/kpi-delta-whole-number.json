@@ -1,0 +1,38 @@
+{
+  "description": "Percent change given as 8.2 instead of 0.082",
+  "widgets": [
+    {
+      "type": "kpi",
+      "id": "a",
+      "title": "Open AR",
+      "value": 412300,
+      "format": "currency",
+      "delta": {
+        "value": 8.2,
+        "label": "vs last month"
+      }
+    },
+    {
+      "type": "kpi",
+      "id": "kpi-0",
+      "title": "Open AR",
+      "value": 412300,
+      "format": "currency"
+    },
+    {
+      "type": "kpi",
+      "id": "kpi-1",
+      "title": "Open AR",
+      "value": 412300,
+      "format": "currency"
+    },
+    {
+      "type": "kpi",
+      "id": "kpi-2",
+      "title": "Open AR",
+      "value": 412300,
+      "format": "currency"
+    }
+  ],
+  "expect_warning": ".delta.value"
+}

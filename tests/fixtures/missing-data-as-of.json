@@ -1,0 +1,32 @@
+{
+  "description": "Dashboard without a data timestamp",
+  "spec": {
+    "title": "Fixture",
+    "widgets": [
+      {
+        "type": "bar_chart",
+        "id": "b1",
+        "title": "Revenue by rep",
+        "size": "full",
+        "format": "currency",
+        "orientation": "horizontal",
+        "categories": [
+          "A. Lee",
+          "B. Diaz",
+          "C. Kim"
+        ],
+        "series": [
+          {
+            "name": "Revenue",
+            "values": [
+              300,
+              200,
+              100
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "expect_error": "missing required field \"data_as_of\""
+}

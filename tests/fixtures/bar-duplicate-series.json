@@ -1,0 +1,37 @@
+{
+  "description": "Two series with the same name",
+  "widgets": [
+    {
+      "type": "bar_chart",
+      "id": "b1",
+      "title": "Revenue by rep",
+      "size": "full",
+      "format": "currency",
+      "orientation": "horizontal",
+      "categories": [
+        "A. Lee",
+        "B. Diaz",
+        "C. Kim"
+      ],
+      "series": [
+        {
+          "name": "Revenue",
+          "values": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "name": "Revenue",
+          "values": [
+            1,
+            2,
+            3
+          ]
+        }
+      ]
+    }
+  ],
+  "expect_error": "used by more than one series"
+}

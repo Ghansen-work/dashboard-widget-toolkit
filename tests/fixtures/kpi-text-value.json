@@ -1,0 +1,34 @@
+{
+  "description": "KPI value given as pre-formatted text",
+  "widgets": [
+    {
+      "type": "kpi",
+      "id": "a",
+      "title": "Open AR",
+      "value": "$412K",
+      "format": "currency"
+    },
+    {
+      "type": "kpi",
+      "id": "kpi-0",
+      "title": "Open AR",
+      "value": 412300,
+      "format": "currency"
+    },
+    {
+      "type": "kpi",
+      "id": "kpi-1",
+      "title": "Open AR",
+      "value": 412300,
+      "format": "currency"
+    },
+    {
+      "type": "kpi",
+      "id": "kpi-2",
+      "title": "Open AR",
+      "value": 412300,
+      "format": "currency"
+    }
+  ],
+  "expect_error": "widgets[0] (kpi \"a\").value: expected number or null"
+}

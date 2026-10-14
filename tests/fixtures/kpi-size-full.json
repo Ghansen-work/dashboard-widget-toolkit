@@ -1,0 +1,14 @@
+{
+  "description": "KPI given a size it doesn't support",
+  "widgets": [
+    {
+      "type": "kpi",
+      "id": "a",
+      "title": "Open AR",
+      "value": 412300,
+      "format": "currency",
+      "size": "full"
+    }
+  ],
+  "expect_error": ".size: must be one of \"S\", \"M\""
+}

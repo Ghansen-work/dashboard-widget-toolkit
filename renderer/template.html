@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<style>
+{{TOKENS_CSS}}
+</style>
+<style>
+{{CORE_CSS}}
+</style>
+{{LIBRARY_SCRIPTS}}
+</head>
+<body>
+<div id="dk-root"></div>
+<script type="application/json" id="dk-spec">{{SPEC_JSON}}</script>
+<script>
+{{CORE_JS}}
+</script>
+<script>
+{{WIDGET_JS}}
+</script>
+<script>DashKit.boot();</script>
+</body>
+</html>

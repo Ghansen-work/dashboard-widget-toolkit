@@ -1,0 +1,14 @@
+{
+  "type": "bar_chart",
+  "id": "revenue-by-quarter",
+  "title": "Revenue by quarter",
+  "subtitle": "Hardware and services, last 6 quarters",
+  "size": "M",
+  "format": "currency",
+  "categories": ["Q2 2025", "Q3 2025", "Q4 2025", "Q1 2026", "Q2 2026", "Q3 2026"],
+  "series": [
+    { "name": "Hardware", "values": [182000, 240500, 198300, 156900, 214700, 263100] },
+    { "name": "Services", "values": [64200, 71800, 69500, 73100, 80400, 88900] }
+  ],
+  "stacked": true
+}

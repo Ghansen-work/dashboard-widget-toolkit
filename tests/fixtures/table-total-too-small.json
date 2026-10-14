@@ -1,0 +1,38 @@
+{
+  "description": "total_count smaller than the rows shown",
+  "widgets": [
+    {
+      "type": "table",
+      "id": "t1",
+      "title": "Open tickets",
+      "columns": [
+        {
+          "key": "ticket",
+          "label": "Ticket"
+        },
+        {
+          "key": "days_open",
+          "label": "Days open",
+          "format": "integer"
+        },
+        {
+          "key": "priority",
+          "label": "Priority",
+          "format": "status"
+        }
+      ],
+      "rows": [
+        {
+          "ticket": "TKT-1",
+          "days_open": 12,
+          "priority": {
+            "text": "High",
+            "level": "critical"
+          }
+        }
+      ],
+      "total_count": 0
+    }
+  ],
+  "expect_error": ".total_count: is 0 but there are 1 rows"
+}

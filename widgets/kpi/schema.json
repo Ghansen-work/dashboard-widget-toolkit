@@ -1,0 +1,64 @@
+{
+  "title": "KPI",
+  "description": "One headline number with an optional change indicator and trend line.",
+  "x-use-when": "The user wants a single headline metric at a point in time: a total, count, average, or rate (open AR, tickets this week, win rate).",
+  "x-dont-use-when": "Several values need comparing across categories (use bar_chart) or the user needs individual records (use table).",
+  "x-sizes": ["S", "M"],
+  "x-default-size": "S",
+  "x-requires-charts": false,
+  "x-checks": [
+    "Warns when a percent value looks like a whole number (45 instead of 0.45).",
+    "Warns when a percent delta looks like a whole number (8.2 instead of 0.082)."
+  ],
+  "type": "object",
+  "required": ["value"],
+  "properties": {
+    "value": {
+      "type": ["number", "null"],
+      "description": "The metric as a raw number, never pre-formatted text. Use null when there is no data and explain why in note."
+    },
+    "format": {
+      "type": "string",
+      "enum": ["number", "integer", "currency", "percent"],
+      "default": "number",
+      "description": "How value is displayed. percent expects a fraction: 0.45 shows as 45%. Values of 10,000 or more are abbreviated ($412.3K)."
+    },
+    "delta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "label"],
+      "description": "Change versus a comparison period.",
+      "properties": {
+        "value": {
+          "type": "number",
+          "description": "The change. With format percent (the default), a fraction: 0.082 shows as +8.2%."
+        },
+        "format": {
+          "type": "string",
+          "enum": ["percent", "value"],
+          "default": "percent",
+          "description": "percent shows a percentage change. value shows the change in the KPI's own format, e.g. +$12.4K."
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 30,
+          "description": "What the change is measured against, e.g. \"vs last month\"."
+        },
+        "good_direction": {
+          "type": "string",
+          "enum": ["up", "down"],
+          "default": "up",
+          "description": "Whether an increase is good (revenue: up) or bad (overdue AR: down). Controls green vs red."
+        }
+      }
+    },
+    "sparkline": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 60,
+      "items": { "type": "number" },
+      "description": "Optional trend, oldest first, ending with the current value. Shows shape only, no axis."
+    }
+  }
+}

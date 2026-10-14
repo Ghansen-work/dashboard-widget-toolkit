@@ -1,0 +1,23 @@
+{
+  "description": "Date column in US format",
+  "widgets": [
+    {
+      "type": "table",
+      "id": "t1",
+      "title": "Open tickets",
+      "columns": [
+        {
+          "key": "opened",
+          "label": "Opened",
+          "format": "date"
+        }
+      ],
+      "rows": [
+        {
+          "opened": "10/12/2026"
+        }
+      ]
+    }
+  ],
+  "expect_error": "expected a date as \"YYYY-MM-DD\""
+}

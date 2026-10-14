@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Dashboard spec",
+  "description": "The JSON document Computer writes to describe a dashboard. The renderer turns it into a single self-contained HTML file. Each entry in widgets is validated against that widget's own schema in widgets/<type>/schema.json.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["title", "data_as_of", "widgets"],
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 60,
+      "description": "Dashboard title in sentence case, no trailing period. Say what and when, e.g. \"Cedar Valley account review, Q3 2026\"."
+    },
+    "subtitle": {
+      "type": "string",
+      "maxLength": 140,
+      "description": "Optional one-line context: who it is for, scope, or filters applied."
+    },
+    "data_as_of": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp with offset for when the data was queried, e.g. \"2026-10-12T09:14:00-06:00\". Shown prominently because dashboards are snapshots."
+    },
+    "currency": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}$",
+      "default": "USD",
+      "description": "ISO 4217 currency code used by every currency value on the dashboard."
+    },
+    "sources": {
+      "type": "array",
+      "maxItems": 6,
+      "items": { "type": "string", "minLength": 1, "maxLength": 40 },
+      "description": "Systems the data came from, e.g. [\"DevRev\", \"Business Central\"]. Shown in the footer."
+    },
+    "widgets": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 24,
+      "items": { "type": "object", "required": ["type"] },
+      "description": "Widgets in reading order: left to right, top to bottom on a 12-column grid."
+    }
+  }
+}

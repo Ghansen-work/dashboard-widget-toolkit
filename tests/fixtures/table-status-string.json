@@ -1,0 +1,34 @@
+{
+  "description": "Status cell given as plain text",
+  "widgets": [
+    {
+      "type": "table",
+      "id": "t1",
+      "title": "Open tickets",
+      "columns": [
+        {
+          "key": "ticket",
+          "label": "Ticket"
+        },
+        {
+          "key": "days_open",
+          "label": "Days open",
+          "format": "integer"
+        },
+        {
+          "key": "priority",
+          "label": "Priority",
+          "format": "status"
+        }
+      ],
+      "rows": [
+        {
+          "ticket": "TKT-1",
+          "days_open": 12,
+          "priority": "High"
+        }
+      ]
+    }
+  ],
+  "expect_error": ".rows[0].priority: expected {\"text\""
+}

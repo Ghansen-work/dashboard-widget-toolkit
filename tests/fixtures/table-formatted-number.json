@@ -1,0 +1,33 @@
+{
+  "description": "Number column given pre-formatted text",
+  "widgets": [
+    {
+      "type": "table",
+      "id": "t1",
+      "title": "Open tickets",
+      "columns": [
+        {
+          "key": "ticket",
+          "label": "Ticket"
+        },
+        {
+          "key": "days_open",
+          "label": "Days open",
+          "format": "integer"
+        },
+        {
+          "key": "priority",
+          "label": "Priority",
+          "format": "status"
+        }
+      ],
+      "rows": [
+        {
+          "ticket": "TKT-1",
+          "days_open": "12 days"
+        }
+      ]
+    }
+  ],
+  "expect_error": "Don't pre-format numbers"
+}
