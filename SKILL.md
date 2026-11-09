@@ -14,13 +14,14 @@ Dashboards are snapshots: the data is baked in when you build the file. To refre
 1. **Understand the request.** Identify the subject, the time range, and who it's for. If one of these is truly missing and you can't pick a sensible default, ask one short question. Otherwise proceed and state your assumptions when you deliver.
 2. **Pick widgets.** Read `widgets/CATALOG.md` and choose only from it. Then open `widgets/<type>/README.md` for each widget type you will use; it has the exact fields and an example.
 3. **Get the data.** Query the sources you have access to. Aggregate in the query (sums, counts, top N) rather than pulling raw rows. Record the time you ran the queries; that becomes `data_as_of`.
-4. **Write the spec** to `spec.json` (see the skeleton below).
-5. **Build and validate:**
+4. **Write the spec** to `spec.json` in the session working directory, not in this skill's folder (see the skeleton below). The skill folder is read-only, and files written there never reach the user.
+5. **Build and validate.** Run the build from the session working directory, calling `build.js` by its full path inside this skill's folder:
    ```
-   node scripts/build.js spec.json --out <short-name>.html
+   node <skill-folder>/scripts/build.js spec.json --out <short-name>.html
    ```
+   `<skill-folder>` is the folder this `SKILL.md` is in. The build finds the widgets, renderer, and theme by itself, so only the spec and output paths are relative to the working directory. Never write the output into the skill folder.
    Read every ERROR and WARNING. Fix the spec and run the build again until there are no errors. Fix warnings too, unless you have a specific reason not to; if so, tell the user the reason.
-6. **Deliver** the HTML file in Canvas. In your reply, say what the dashboard covers, the data-as-of time, the sources, any assumptions, and anything you couldn't include. If they need to share it outside DevRev, offer a PDF.
+6. **Deliver.** Any HTML file in the working directory shows up in Canvas automatically. Tell the user it's in Canvas; don't give a download link. In your reply, say what the dashboard covers, the data-as-of time, the sources, any assumptions, and anything you couldn't include. If they need to share it outside DevRev, offer a PDF.
 
 ## Rules
 
