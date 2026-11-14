@@ -12,6 +12,12 @@
 
   Exit code 0 = built (or valid with --check), 1 = errors to fix.
 */
+const NODE_MAJOR = Number(process.versions.node.split('.')[0]);
+if (NODE_MAJOR < 18) {
+  console.error(`ERROR    Node ${process.version} is too old. The dashboard build needs Node 18 or later.`);
+  process.exit(1);
+}
+
 const fs = require('fs');
 const path = require('path');
 const { loadWidgets, validateDashboard, formatIssues, buildHtml } = require('./lib/toolkit');

@@ -68,7 +68,13 @@ See `widgets/CATALOG.md` for the full guidance, and [CONTRIBUTING.md](CONTRIBUTI
 
 ## Uploading to DevRev as a skill
 
-The repo root is the skill: `SKILL.md` is the entry point and everything it references is relative to it. Upload the folder without `tests/`, `out/`, and `.git/`. Computer needs Node 18+ in its shell to run `scripts/build.js`.
+The repo root is the skill: `SKILL.md` is the entry point and everything it references is relative to it. Computer needs Node 18+ in its shell to run `scripts/build.js`.
+
+1. Commit your changes, then run `npm run package`. It zips the last commit into `out/dashboard-toolkit.zip`, leaving out `tests/` and the repo-only docs (DevRev doesn't allow a `README.md` at the skill root).
+2. In DevRev, go to **Settings > My Computer > Skills > My Skills** and upload the zip. For an org-wide skill, an admin uploads it under **Settings > My Computer > Agent Admin > Skills > Create skill**.
+3. Start a new Computer chat. Updated skills only take effect in new sessions.
+
+To update the skill, rebuild the zip and use **Edit skill** to upload it again. DevRev keeps no version history for personal skills, so tag releases in Git if you might need to roll back. On Windows, expect Computer to ask you to approve the `node` command each time.
 
 ## Technical notes
 

@@ -1,6 +1,7 @@
 ---
 name: dashboard-toolkit
 description: Build dashboards and visual reports from the team's standard widget toolkit, so every dashboard has the same design. Use this whenever someone asks for a dashboard, report, scorecard, KPI summary, account review, metrics overview, or any visual summary of data, even if they don't say "dashboard".
+compatibility: Requires Node.js 18 or later in the shell. No npm packages and no network access are needed to build.
 ---
 
 # Dashboard toolkit

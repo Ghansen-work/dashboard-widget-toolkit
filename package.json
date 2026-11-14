@@ -10,6 +10,7 @@
     "examples": "node scripts/build-examples.js",
     "docs": "node scripts/docs.js",
     "check-case": "node scripts/check-case.js",
+    "package": "node scripts/package.js",
     "test": "node --test"
   }
 }
