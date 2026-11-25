@@ -31,9 +31,9 @@ Dashboards are snapshots: the data is baked in when you build the file. To refre
 - **Raw numbers only.** Pass `412300`, not `"$412K"`. The renderer formats everything.
 - **Percents are fractions.** `0.45` displays as 45%. This applies to values and deltas.
 - **Dates** in tables are `"YYYY-MM-DD"`. `data_as_of` is a full ISO timestamp with offset, e.g. `"2026-10-12T09:14:00-06:00"`.
-- **Never invent data.** If a value is unavailable, use `null` (KPI) or an empty table with an `empty_message`, add a `note` explaining why, and mention it to the user.
+- **Never invent data.** If a value is unavailable, use `null` (KPI, gauge, chart values, heatmap cells, funnel stages) or an empty table with an `empty_message`, add a `note` explaining why, and mention it to the user. In a time series, keep the missing period and set its value to `null` so the gap shows; never use 0 and never drop the period.
 - **Large data.** Tables show at most 50 rows: pick the top N, sort them, and set `total_count` to the full count.
-- **Layout.** Widgets fill a 12-column grid in order (S = 3, M = 6, L = 9, full = 12). Make each row add up to 12. Put KPIs first in a row of their own, then charts, then detail tables.
+- **Layout.** Widgets fill a 12-column grid in order (S = 3, M = 6, L = 9, full = 12). Make each row add up to 12. Put KPIs (and gauges) first in a row of their own, then charts, then detail tables.
 - **Writing.** Titles in sentence case, no trailing period, and specific: "Revenue by account manager, Q3 2026", not "Revenue chart". Keep subtitles and notes to one line.
 
 ## Spec skeleton
@@ -51,4 +51,4 @@ Dashboards are snapshots: the data is baked in when you build the file. To refre
 }
 ```
 
-Only one widget is shown here; a real first row would have four S-sized KPIs to fill 12 columns. Full examples: `examples/account-review.json` and `examples/sales-overview.json`.
+Only one widget is shown here; a real first row would have four S-sized KPIs to fill 12 columns. Full examples: `examples/account-review.json`, `examples/sales-overview.json`, and `examples/distribution-operations.json` (line chart with gaps, gauges, funnel, donut, heatmap).

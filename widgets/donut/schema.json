@@ -1,0 +1,55 @@
+{
+  "title": "Donut",
+  "description": "Shows how a whole splits into up to six parts, with the total in the middle and each part's share beside it.",
+  "x-use-when": "Part-to-whole for one total split into 2 to 6 parts: revenue mix by category, open order lines by item class, Commercial vs SLED split.",
+  "x-dont-use-when": "The parts don't add up to a meaningful whole, or you are comparing values across categories (use bar_chart), there are more than 6 parts (group the smallest into \"Other\", or use bar_chart), or the split changes over time (use line_chart or a stacked bar_chart).",
+  "x-sizes": ["S", "M", "L"],
+  "x-default-size": "M",
+  "x-requires-charts": true,
+  "x-checks": [
+    "Error when two slices share a label.",
+    "Error when every slice is 0.",
+    "Warns when the values add up to 1 (they look like shares; pass the raw amounts).",
+    "Warns when slices aren't sorted largest first (a slice named \"Other\" may come last)."
+  ],
+  "type": "object",
+  "required": ["slices"],
+  "properties": {
+    "slices": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 6,
+      "description": "The parts of the whole, largest first. Group anything past the fifth part into a final \"Other\" slice.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "value"],
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 30,
+            "description": "Name of the part, e.g. \"Networking\"."
+          },
+          "value": {
+            "type": "number",
+            "minimum": 0,
+            "description": "The part's raw amount (count or dollars), not its share. The donut computes shares from the total."
+          }
+        }
+      }
+    },
+    "format": {
+      "type": "string",
+      "enum": ["number", "integer", "currency"],
+      "default": "number",
+      "description": "How the total and slice values are displayed. Shares are always shown as percents."
+    },
+    "center_label": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "description": "Short label under the total in the middle of the donut, e.g. \"Open lines\". Default: \"Total\"."
+    }
+  }
+}

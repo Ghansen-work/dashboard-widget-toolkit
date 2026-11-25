@@ -1,0 +1,10 @@
+{
+  "type": "gauge",
+  "id": "margin-vs-floor",
+  "title": "Gross margin, Q3 2026",
+  "subtitle": "Commercial, all KPAs",
+  "size": "S",
+  "format": "percent",
+  "value": 0.152,
+  "target": { "value": 0.08, "kind": "floor", "label": "KPA policy floor", "warning_within": 0.02 }
+}

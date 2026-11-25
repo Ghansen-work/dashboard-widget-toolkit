@@ -1,0 +1,15 @@
+{
+  "type": "funnel",
+  "id": "q3-fulfillment",
+  "title": "Q3 2026 orders through fulfillment",
+  "subtitle": "Orders placed Jul 1 to Sep 30, 2026",
+  "size": "M",
+  "mode": "conversion",
+  "format": "integer",
+  "stages": [
+    { "label": "Ordered", "value": 1240 },
+    { "label": "Received", "value": 1118, "detail": "Avg 6.1 days from order" },
+    { "label": "Shipped", "value": 1062, "detail": "Avg 1.4 days from receipt" },
+    { "label": "Invoiced", "value": 1049 }
+  ]
+}

@@ -2,7 +2,7 @@
   "title": "Table",
   "description": "Rows of records with typed columns, including status pills. Shows at most 50 rows.",
   "x-use-when": "The user needs to see individual records or exact values: open tickets, top deals, overdue invoices, a list of accounts.",
-  "x-dont-use-when": "The point is a comparison or trend (use bar_chart) or a single total (use kpi). Don't dump raw data: aggregate or pick the top N.",
+  "x-dont-use-when": "The point is a comparison (use bar_chart), a trend (use line_chart), a cross-tab of one measure by two dimensions (use heatmap), or a single total (use kpi). Don't dump raw data: aggregate or pick the top N.",
   "x-sizes": ["M", "L", "full"],
   "x-default-size": "full",
   "x-requires-charts": false,

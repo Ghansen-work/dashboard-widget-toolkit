@@ -1,0 +1,101 @@
+{
+  "title": "Distribution operations, October 2026",
+  "subtitle": "Fulfillment, margin, and order mix. All figures are sample data.",
+  "data_as_of": "2026-11-02T08:05:00-07:00",
+  "sources": ["Business Central"],
+  "widgets": [
+    {
+      "type": "kpi",
+      "id": "open-lines",
+      "title": "Open order lines",
+      "value": 2610,
+      "format": "integer",
+      "delta": { "value": -0.064, "label": "vs last month", "good_direction": "down" }
+    },
+    {
+      "type": "kpi",
+      "id": "backorder-value",
+      "title": "Backordered value",
+      "value": 486200,
+      "format": "currency",
+      "delta": { "value": 0.112, "label": "vs last month", "good_direction": "down" }
+    },
+    {
+      "type": "gauge",
+      "id": "margin-vs-floor",
+      "title": "Gross margin, October",
+      "format": "percent",
+      "value": 0.141,
+      "target": { "value": 0.08, "kind": "floor", "label": "KPA policy floor", "warning_within": 0.02 }
+    },
+    {
+      "type": "gauge",
+      "id": "gp-vs-quota",
+      "title": "GP attainment, Q4 to date",
+      "format": "currency",
+      "value": 1184000,
+      "target": { "value": 1650000, "kind": "goal", "label": "Q4 quota" }
+    },
+    {
+      "type": "line_chart",
+      "id": "margin-by-month",
+      "title": "Gross margin by month, Sep 2025 to Oct 2026",
+      "subtitle": "Commercial and SLED",
+      "format": "percent",
+      "periods": ["Sep 2025", "Oct 2025", "Nov 2025", "Dec 2025", "Jan 2026", "Feb 2026", "Mar 2026", "Apr 2026", "May 2026", "Jun 2026", "Jul 2026", "Aug 2026", "Sep 2026", "Oct 2026"],
+      "series": [
+        { "name": "Commercial", "values": [0.121, 0.118, 0.126, 0.131, 0.114, null, null, 0.122, 0.127, 0.133, 0.129, 0.124, 0.137, 0.141] },
+        { "name": "SLED", "values": [0.094, 0.089, 0.097, 0.102, 0.088, null, null, 0.091, 0.086, 0.079, 0.083, 0.092, 0.098, 0.101] }
+      ],
+      "reference_lines": [{ "label": "Policy floor", "value": 0.08 }],
+      "note": "Feb and Mar 2026 are withheld while the cost restatement is under review."
+    },
+    {
+      "type": "funnel",
+      "id": "fulfillment-now",
+      "title": "Open orders by fulfillment step",
+      "subtitle": "Where every open order sits today",
+      "mode": "snapshot",
+      "format": "integer",
+      "stages": [
+        { "label": "Ordered", "value": 184, "detail": "Not yet sent to vendor" },
+        { "label": "Awaiting receipt", "value": 412, "detail": "Avg 9.3 days waiting" },
+        { "label": "Received", "value": 96 },
+        { "label": "Shipped", "value": 138 },
+        { "label": "Ready to invoice", "value": 57 }
+      ]
+    },
+    {
+      "type": "donut",
+      "id": "open-lines-by-class",
+      "title": "Open order lines by item class",
+      "format": "integer",
+      "center_label": "Open lines",
+      "slices": [
+        { "label": "Client devices", "value": 1284 },
+        { "label": "Networking", "value": 612 },
+        { "label": "Audio visual", "value": 377 },
+        { "label": "Software licenses", "value": 241 },
+        { "label": "Other", "value": 96 }
+      ]
+    },
+    {
+      "type": "heatmap",
+      "id": "margin-by-mfr-quarter",
+      "title": "Gross margin by manufacturer and quarter",
+      "subtitle": "Commercial segment, last 5 quarters",
+      "format": "percent",
+      "row_header": "Manufacturer",
+      "row_labels": ["Summit Computing", "Acme Networks", "Ridgeline Storage", "Bluepeak AV", "Harbor Security"],
+      "column_labels": ["Q3 2025", "Q4 2025", "Q1 2026", "Q2 2026", "Q3 2026"],
+      "values": [
+        [0.094, 0.101, null, 0.112, 0.118],
+        [0.142, 0.138, 0.151, 0.147, 0.156],
+        [0.071, 0.076, null, 0.083, 0.088],
+        [0.188, 0.176, 0.192, 0.201, 0.197],
+        [0.122, null, null, 0.131, 0.129]
+      ],
+      "note": "Q1 2026 values are withheld for manufacturers under cost restatement."
+    }
+  ]
+}

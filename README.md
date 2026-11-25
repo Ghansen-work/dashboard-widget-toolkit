@@ -54,7 +54,12 @@ tests/                   Automated tests and the Computer test cases
 | Widget | Use it for |
 | --- | --- |
 | `kpi` | One headline number with an optional change and trend line |
+| `gauge` | One number against a floor, ceiling, or goal (margin vs policy floor, GP vs quota) |
 | `bar_chart` | Comparing values across categories or a short run of periods |
+| `line_chart` | Trends over many periods, with visible gaps for missing or withheld periods |
+| `donut` | Part-to-whole, six slices or fewer |
+| `funnel` | Ordered stages: drop-off from step to step, or how many sit at each step now |
+| `heatmap` | One measure across two dimensions (manufacturer by quarter), gaps kept visible |
 | `table` | Individual records, with typed columns and status pills |
 
 See `widgets/CATALOG.md` for the full guidance, and [CONTRIBUTING.md](CONTRIBUTING.md) to add a widget.

@@ -1,0 +1,59 @@
+{
+  "title": "Funnel",
+  "description": "Shows an ordered set of stages as bars: either drop-off from stage to stage, or how many items sit at each step right now.",
+  "x-use-when": "A process with ordered stages: a fulfillment pipeline (ordered, awaiting receipt, received, shipped, invoiced), a sales pipeline, or any flow where stage-to-stage drop-off or the count waiting at each step matters.",
+  "x-dont-use-when": "The categories have no natural order (use bar_chart), they are parts of one whole with no flow (use donut), or the user needs the individual orders (use table).",
+  "x-sizes": ["M", "L", "full"],
+  "x-default-size": "M",
+  "x-requires-charts": false,
+  "x-checks": [
+    "Error when two stages share a label.",
+    "Warns when a stage in a conversion funnel is larger than the stage before it (the data is probably a snapshot: use mode \"snapshot\").",
+    "Warns when every stage is null."
+  ],
+  "type": "object",
+  "required": ["stages"],
+  "properties": {
+    "stages": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 8,
+      "description": "Stages in process order, first step first.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "value"],
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 30,
+            "description": "Stage name, e.g. \"Awaiting receipt\"."
+          },
+          "value": {
+            "type": ["number", "null"],
+            "minimum": 0,
+            "description": "Raw count or amount for the stage. Use null when it is unknown, never 0."
+          },
+          "detail": {
+            "type": "string",
+            "maxLength": 40,
+            "description": "Optional short context for the stage, e.g. \"Avg 4.2 days in stage\"."
+          }
+        }
+      }
+    },
+    "mode": {
+      "type": "string",
+      "enum": ["conversion", "snapshot"],
+      "default": "conversion",
+      "description": "conversion: each stage counts everything that reached it, so it shows % of the previous stage and % of the first. snapshot: each stage counts what is sitting there right now, so it shows each stage's share of the total."
+    },
+    "format": {
+      "type": "string",
+      "enum": ["number", "integer", "currency"],
+      "default": "integer",
+      "description": "How stage values are displayed. Use integer for counts of orders or lines, currency for dollar amounts."
+    }
+  }
+}

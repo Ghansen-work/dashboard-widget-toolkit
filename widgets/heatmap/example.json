@@ -1,0 +1,19 @@
+{
+  "type": "heatmap",
+  "id": "margin-by-mfr-quarter",
+  "title": "Gross margin by manufacturer and quarter",
+  "subtitle": "Commercial segment, last 5 quarters",
+  "size": "full",
+  "format": "percent",
+  "row_header": "Manufacturer",
+  "row_labels": ["Summit Computing", "Acme Networks", "Ridgeline Storage", "Bluepeak AV", "Harbor Security"],
+  "column_labels": ["Q3 2025", "Q4 2025", "Q1 2026", "Q2 2026", "Q3 2026"],
+  "values": [
+    [0.094, 0.101, null, 0.112, 0.118],
+    [0.142, 0.138, 0.151, 0.147, 0.156],
+    [0.071, 0.076, null, 0.083, 0.088],
+    [0.188, 0.176, 0.192, 0.201, 0.197],
+    [0.122, null, null, 0.131, 0.129]
+  ],
+  "note": "Q1 2026 values are withheld for manufacturers under cost restatement."
+}

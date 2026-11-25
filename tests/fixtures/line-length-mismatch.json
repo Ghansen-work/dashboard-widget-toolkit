@@ -1,0 +1,32 @@
+{
+  "description": "Line series missing a value instead of using null for the gap",
+  "widgets": [
+    {
+      "type": "line_chart",
+      "id": "l1",
+      "title": "Margin by month",
+      "format": "percent",
+      "periods": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun"
+      ],
+      "series": [
+        {
+          "name": "Margin",
+          "values": [
+            0.1,
+            0.11,
+            0.12,
+            0.1,
+            0.13
+          ]
+        }
+      ]
+    }
+  ],
+  "expect_error": "Use null for a missing period"
+}

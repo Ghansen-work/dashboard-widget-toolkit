@@ -6,7 +6,7 @@ Rows of records with typed columns, including status pills. Shows at most 50 row
 
 **Use when:** The user needs to see individual records or exact values: open tickets, top deals, overdue invoices, a list of accounts.
 
-**Don't use when:** The point is a comparison or trend (use bar_chart) or a single total (use kpi). Don't dump raw data: aggregate or pick the top N.
+**Don't use when:** The point is a comparison (use bar_chart), a trend (use line_chart), a cross-tab of one measure by two dimensions (use heatmap), or a single total (use kpi). Don't dump raw data: aggregate or pick the top N.
 
 **Sizes:** M, L, full (default)
 

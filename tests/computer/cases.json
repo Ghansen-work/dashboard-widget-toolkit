@@ -56,6 +56,72 @@
     "manual_checks": ["Months are in time order, oldest first."]
   },
   {
+    "id": "long-trend",
+    "prompt": "Show gross margin by month for the last 14 months, Commercial vs SLED, against our 8% policy floor. Feb and Mar are withheld.",
+    "expect": {
+      "must_include": ["line_chart"],
+      "must_not_include": ["bar_chart"],
+      "has": [
+        { "type": "line_chart", "field": "format", "equals": "percent" },
+        { "type": "line_chart", "field": "periods", "length": 14 },
+        { "type": "line_chart", "field": "reference_lines.*.value", "equals": 0.08 }
+      ]
+    },
+    "manual_checks": [
+      "Withheld months are null (a visible gap), not 0 and not dropped from periods.",
+      "A note explains why the months are missing."
+    ]
+  },
+  {
+    "id": "composition",
+    "prompt": "What is our revenue mix between Commercial and SLED this quarter?",
+    "expect": {
+      "must_include": ["donut"],
+      "has": [
+        { "type": "donut", "field": "format", "equals": "currency" },
+        { "type": "donut", "field": "slices", "length": 2 }
+      ]
+    },
+    "manual_checks": ["Slices hold raw revenue, not shares, so the center shows the real total."]
+  },
+  {
+    "id": "pipeline-snapshot",
+    "prompt": "How many open orders are at each fulfillment step right now: ordered, awaiting receipt, received, shipped, invoiced?",
+    "expect": {
+      "must_include": ["funnel"],
+      "has": [
+        { "type": "funnel", "field": "mode", "equals": "snapshot" },
+        { "type": "funnel", "field": "stages", "length": 5 }
+      ]
+    },
+    "manual_checks": ["Stages are in process order, first step first."]
+  },
+  {
+    "id": "against-floor",
+    "prompt": "Show gross margin for Q3 against our 8% KPA policy floor.",
+    "expect": {
+      "must_include": ["gauge"],
+      "has": [
+        { "type": "gauge", "field": "format", "equals": "percent" },
+        { "type": "gauge", "field": "target.kind", "equals": "floor" },
+        { "type": "gauge", "field": "target.value", "equals": 0.08 }
+      ]
+    },
+    "manual_checks": ["The margin is a fraction (0.152), so the gauge reads 15.2%, not 1,520%."]
+  },
+  {
+    "id": "cross-tab",
+    "prompt": "Show gross margin by manufacturer and quarter for the last four quarters.",
+    "expect": {
+      "must_include": ["heatmap"],
+      "has": [
+        { "type": "heatmap", "field": "format", "equals": "percent" },
+        { "type": "heatmap", "field": "column_labels", "length": 4 }
+      ]
+    },
+    "manual_checks": ["Quarters run oldest to newest across the top.", "Missing cells are null, not 0."]
+  },
+  {
     "id": "account-review",
     "prompt": "Build an account review for our biggest customer: revenue year to date, open pipeline, revenue by quarter, and their open tickets.",
     "expect": {

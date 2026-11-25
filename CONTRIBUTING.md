@@ -10,6 +10,7 @@ Everyone on the team will think of widgets nobody else did. This guide keeps new
    - `x-use-when` and `x-dont-use-when`: one sentence each. Name the widget to use instead in the "don't" sentence. This guidance is what keeps Computer from putting data in the wrong widget.
    - `x-sizes` and `x-default-size`: which grid widths make sense.
    - `x-requires-charts`: `true` if you use ECharts.
+   - `x-kpi-row`: `true` for compact headline widgets (like `kpi` and `gauge`) that may share a row with KPIs.
    - Every property gets a `description` written for Computer: what goes there, in what form, with an example.
    - Keep it tight: use `enum`, `required`, `minItems`/`maxItems`, and `additionalProperties: false` on nested objects. Don't redefine the shared fields (`type`, `id`, `title`, `subtitle`, `size`, `note`); they're added automatically.
 4. **Write `checks.js`** for rules the schema can't express, like "each series has one value per category". List each rule in `x-checks` so it shows up in the docs.
@@ -43,12 +44,8 @@ Everyone on the team will think of widgets nobody else did. This guide keeps new
 
 Add to this list when you think of one, even if you're not building it.
 
-- `line_chart`: trends over many periods
-- `kpi_target`: progress toward a goal or quota
-- `funnel`: pipeline stages
 - `status_list`: a short list of items with health indicators
 - `text_callout`: Computer's written summary or key takeaway
 - `leaderboard`: ranked list with values and change
-- `donut`: share of a whole, five slices or fewer
 - `timeline`: dated milestones or events
-- `heatmap`: activity by day and hour, or account by month
+- `heatmap` diverging scale: color cells above and below a threshold (margin vs floor)

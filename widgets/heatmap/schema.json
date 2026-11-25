@@ -1,0 +1,61 @@
+{
+  "title": "Heatmap",
+  "description": "A grid of one measure across two dimensions, shaded from light (low) to dark (high), with empty cells kept visible as gaps.",
+  "x-use-when": "One measure cross-tabbed by two dimensions: margin by manufacturer and quarter, orders by branch and item class, revenue by rep and KPA. Missing cells stay visible as gaps.",
+  "x-dont-use-when": "There is only one dimension (use bar_chart), the columns are a long time series for a few rows (use line_chart), or the user needs records with mixed fields (use table).",
+  "x-sizes": ["M", "L", "full"],
+  "x-default-size": "full",
+  "x-requires-charts": false,
+  "x-checks": [
+    "Error when values doesn't have one row per row label, or a row doesn't have one value per column label.",
+    "Error when two row labels or two column labels are the same.",
+    "Warns when percent values look like whole numbers (45 instead of 0.45).",
+    "Warns when every cell is null.",
+    "Warns when more than 12 columns are shown at a size smaller than full."
+  ],
+  "type": "object",
+  "required": ["row_labels", "column_labels", "values"],
+  "properties": {
+    "row_labels": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 30,
+      "items": { "type": "string", "minLength": 1, "maxLength": 40 },
+      "description": "Labels down the left side, in display order, e.g. manufacturers sorted by revenue."
+    },
+    "column_labels": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 24,
+      "items": { "type": "string", "minLength": 1, "maxLength": 20 },
+      "description": "Labels across the top, in display order. Keep periods in time order, oldest first."
+    },
+    "values": {
+      "type": "array",
+      "maxItems": 30,
+      "items": {
+        "type": "array",
+        "maxItems": 24,
+        "items": { "type": ["number", "null"] }
+      },
+      "description": "One list per row label, each with one raw number per column label: values[row][column]. Use null for a missing or withheld cell, never 0."
+    },
+    "format": {
+      "type": "string",
+      "enum": ["number", "integer", "currency", "percent"],
+      "default": "number",
+      "description": "How cell values are displayed. percent expects fractions: 0.124 shows as 12.4%."
+    },
+    "row_header": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 30,
+      "description": "Header above the row labels, e.g. \"Manufacturer\"."
+    },
+    "show_values": {
+      "type": "boolean",
+      "default": true,
+      "description": "Print the value in each cell. Turn off only for large grids where the shading alone tells the story."
+    }
+  }
+}

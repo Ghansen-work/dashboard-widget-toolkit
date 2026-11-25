@@ -1,0 +1,27 @@
+{
+  "description": "Line chart for only three periods",
+  "widgets": [
+    {
+      "type": "line_chart",
+      "id": "l1",
+      "title": "Revenue by quarter",
+      "format": "currency",
+      "periods": [
+        "Q1",
+        "Q2",
+        "Q3"
+      ],
+      "series": [
+        {
+          "name": "Revenue",
+          "values": [
+            100,
+            120,
+            130
+          ]
+        }
+      ]
+    }
+  ],
+  "expect_warning": "Use bar_chart"
+}

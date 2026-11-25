@@ -1,0 +1,85 @@
+{
+  "title": "Line chart",
+  "description": "Shows how one or more measures change over a run of time periods, with visible gaps where a period has no data.",
+  "x-use-when": "A trend over time with more than 8 periods, or any time series with missing or withheld periods: monthly margin, weekly revenue, backorder aging over time.",
+  "x-dont-use-when": "The categories aren't time periods (use bar_chart), there are 8 or fewer periods and exact heights matter (use bar_chart), or there is one current number (use kpi, or gauge against a target).",
+  "x-sizes": ["M", "L", "full"],
+  "x-default-size": "full",
+  "x-requires-charts": true,
+  "x-checks": [
+    "Error when a series has a different number of values than there are periods.",
+    "Error when two series share a name.",
+    "Warns when percent values or reference lines look like whole numbers (45 instead of 0.45).",
+    "Warns when a series has no values at all.",
+    "Warns when there are fewer than 4 periods (use bar_chart).",
+    "Warns when area is true with more than 2 series (overlapping areas hide each other)."
+  ],
+  "type": "object",
+  "required": ["periods", "series"],
+  "properties": {
+    "periods": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 60,
+      "items": { "type": "string", "minLength": 1, "maxLength": 20 },
+      "description": "Period labels, oldest first, one per period with no periods skipped, e.g. [\"Sep 2025\", \"Oct 2025\", ...]. Keep a period whose data is missing and use null for its values, so the gap shows."
+    },
+    "series": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 6,
+      "description": "One entry per line. Each series has exactly one value per period, in the same order as periods.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "values"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 30,
+            "description": "Series name shown in the legend and tooltip, e.g. \"SLED\"."
+          },
+          "values": {
+            "type": "array",
+            "items": { "type": ["number", "null"] },
+            "description": "Raw numbers aligned with periods. Use null for a missing or withheld period, never 0: null draws a gap in the line."
+          }
+        }
+      }
+    },
+    "format": {
+      "type": "string",
+      "enum": ["number", "integer", "currency", "percent"],
+      "default": "number",
+      "description": "How values are displayed on the axis and tooltip. percent expects fractions: 0.124 shows as 12.4%."
+    },
+    "area": {
+      "type": "boolean",
+      "default": false,
+      "description": "Shade the area under each line. Use for one or two series that are volumes (revenue, units), not rates."
+    },
+    "reference_lines": {
+      "type": "array",
+      "maxItems": 3,
+      "description": "Optional dashed horizontal lines for a threshold or target, in the same format as the values, e.g. [{\"label\": \"Policy floor\", \"value\": 0.08}].",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "value"],
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 30,
+            "description": "What the line marks, e.g. \"KPA floor\" or \"Quota\"."
+          },
+          "value": {
+            "type": "number",
+            "description": "Where the line sits, as a raw number in the chart's format."
+          }
+        }
+      }
+    }
+  }
+}

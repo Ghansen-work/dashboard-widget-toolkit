@@ -1,0 +1,31 @@
+{
+  "description": "Heatmap with fewer value rows than row labels",
+  "widgets": [
+    {
+      "type": "heatmap",
+      "id": "h1",
+      "title": "Orders by branch and class",
+      "format": "integer",
+      "row_labels": [
+        "Salt Lake",
+        "Boise",
+        "Reno"
+      ],
+      "column_labels": [
+        "Devices",
+        "Networking"
+      ],
+      "values": [
+        [
+          10,
+          4
+        ],
+        [
+          8,
+          3
+        ]
+      ]
+    }
+  ],
+  "expect_error": "one list per row label"
+}

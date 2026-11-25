@@ -6,7 +6,7 @@ Compares values across categories, or across a short run of periods, with one or
 
 **Use when:** Comparing a measure across categories (revenue by rep, tickets by priority) or a short run of periods (revenue by quarter). Use horizontal bars for rankings and long names.
 
-**Don't use when:** There is only one number (use kpi), the user needs exact values for many records (use table), or there are more than 30 categories (aggregate to top N first).
+**Don't use when:** There is only one number (use kpi), it's a trend over more than 8 periods or has missing periods (use line_chart), it's part-to-whole (use donut), the categories are ordered process stages (use funnel), the user needs exact values for many records (use table), or there are more than 30 categories (aggregate to top N first).
 
 **Sizes:** M (default), L, full
 
@@ -54,5 +54,5 @@ Fields from `id` to `note` are shared by every widget.
 - Error when a series has a different number of values than there are categories.
 - Error when two series share a name.
 - Warns when percent values look like whole numbers (45 instead of 0.45).
-- Warns when vertical bars have more than 8 categories or labels longer than 14 characters (use horizontal).
+- Warns when vertical bars have more than 8 categories or labels longer than 14 characters (use horizontal, or line_chart for time periods).
 - Warns when stacked is true with only one series.

@@ -83,8 +83,9 @@ function widgetLabel(widget, index) {
 
 /*
   Layout check. Widgets fill a 12-column grid left to right in order. Warns
-  about rows that end with empty columns and KPIs that share a row with a
-  taller widget (the KPI cards would stretch to the chart's height).
+  about rows that end with empty columns and KPI-row widgets (schemas with
+  "x-kpi-row": kpi, gauge) that share a row with a taller widget (the KPI
+  cards would stretch to the chart's height).
 */
 function layoutWarnings(spec, widgets) {
   const warnings = [];
@@ -111,12 +112,13 @@ function layoutWarnings(spec, widgets) {
         message: `${where} fills ${row.used} of 12 columns, leaving a gap. Resize or reorder widgets so each row adds up to 12 (S = 3, M = 6, L = 9, full = 12).`
       });
     }
-    const hasKpi = row.items.some((x) => x.w.type === 'kpi');
-    const hasOther = row.items.some((x) => x.w.type !== 'kpi');
+    const kpiRow = (x) => Boolean(widgets[x.w.type].raw['x-kpi-row']);
+    const hasKpi = row.items.some(kpiRow);
+    const hasOther = row.items.some((x) => !kpiRow(x));
     if (hasKpi && hasOther) {
       warnings.push({
         path: `widgets[${first.i}]`,
-        message: `${where} mixes KPIs with taller widgets, so the KPI cards would stretch. Put KPIs in a row of their own.`
+        message: `${where} mixes KPIs with taller widgets, so the KPI cards would stretch. Put KPIs in a row of their own (kpi and gauge can share one).`
       });
     }
   });

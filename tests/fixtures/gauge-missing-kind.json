@@ -1,0 +1,16 @@
+{
+  "description": "Gauge target without a kind",
+  "widgets": [
+    {
+      "type": "gauge",
+      "id": "g1",
+      "title": "Fill rate",
+      "format": "percent",
+      "value": 0.94,
+      "target": {
+        "value": 0.95
+      }
+    }
+  ],
+  "expect_error": "missing required field \"kind\""
+}

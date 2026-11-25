@@ -1,0 +1,33 @@
+{
+  "description": "Gauge sharing a row with a chart",
+  "widgets": [
+    {
+      "type": "gauge",
+      "id": "g1",
+      "title": "Gross margin",
+      "format": "percent",
+      "value": 0.12,
+      "target": {
+        "value": 0.08,
+        "kind": "floor"
+      }
+    },
+    {
+      "type": "donut",
+      "id": "d1",
+      "title": "Lines by class",
+      "size": "L",
+      "slices": [
+        {
+          "label": "Devices",
+          "value": 10
+        },
+        {
+          "label": "Networking",
+          "value": 5
+        }
+      ]
+    }
+  ],
+  "expect_warning": "Put KPIs in a row of their own"
+}

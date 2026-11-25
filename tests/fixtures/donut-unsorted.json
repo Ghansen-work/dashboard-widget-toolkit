@@ -1,0 +1,26 @@
+{
+  "description": "Donut slices not sorted largest first",
+  "widgets": [
+    {
+      "type": "donut",
+      "id": "d1",
+      "title": "Lines by class",
+      "format": "integer",
+      "slices": [
+        {
+          "label": "Networking",
+          "value": 200
+        },
+        {
+          "label": "Client devices",
+          "value": 900
+        },
+        {
+          "label": "Other",
+          "value": 50
+        }
+      ]
+    }
+  ],
+  "expect_warning": "largest first"
+}

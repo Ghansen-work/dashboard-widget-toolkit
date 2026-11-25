@@ -1,0 +1,21 @@
+{
+  "description": "Funnel stage value as formatted text",
+  "widgets": [
+    {
+      "type": "funnel",
+      "id": "f1",
+      "title": "Orders by step",
+      "stages": [
+        {
+          "label": "Ordered",
+          "value": "1,240"
+        },
+        {
+          "label": "Shipped",
+          "value": 1062
+        }
+      ]
+    }
+  ],
+  "expect_error": "expected number or null"
+}

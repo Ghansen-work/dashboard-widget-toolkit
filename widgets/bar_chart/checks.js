@@ -31,7 +31,7 @@ module.exports = function checkBarChart(widget) {
   if ((widget.orientation || 'vertical') === 'vertical' && (categories.length > 8 || longest > 14)) {
     warnings.push({
       path: '.orientation',
-      message: `vertical bars with ${categories.length} categories (longest label ${longest} characters) will crowd. Use "orientation": "horizontal".`
+      message: `vertical bars with ${categories.length} categories (longest label ${longest} characters) will crowd. Use "orientation": "horizontal". If the categories are time periods, use line_chart instead.`
     });
   }
 

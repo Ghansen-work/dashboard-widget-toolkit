@@ -47,7 +47,7 @@ The page has a header (title, subtitle, data-as-of stamp), a 12-column grid, and
 
 - Sizes: **S** = 3 columns, **M** = 6, **L** = 9, **full** = 12. Each widget declares which sizes it supports.
 - Widgets flow left to right in spec order. Each row should add up to 12; the validator warns about gaps.
-- KPIs go in a row of their own, because cards in a row share a height.
+- KPIs go in a row of their own, because cards in a row share a height. Gauges are KPI-sized and can share that row.
 - Order: KPIs, then charts, then tables.
 - Tablets: S becomes half width, everything else full. Phones: one column. Print keeps the desktop grid.
 
@@ -69,10 +69,14 @@ Missing values show as an em dash. Large values (10,000 and up) are abbreviated 
 ## Charts
 
 - One chart library (ECharts), styled entirely from tokens. No animation: these are static reports.
-- Vertical bars for time periods and a few short categories. Horizontal bars for rankings and long names, sorted largest first.
+- Vertical bars for a short run of periods (8 or fewer) and a few short categories. Horizontal bars for rankings and long names, sorted largest first.
+- Lines for longer runs of periods. A missing period is a visible gap, never a zero and never silently joined across.
 - Stack only when the series add up to a meaningful total.
 - Legends appear only when there is more than one series.
-- No pie charts yet. If we add one, limit it to five slices.
+- Part-to-whole uses a donut with six slices at most, largest first, smallest grouped into "Other". The total sits in the middle and the legend lists every amount and share, so no one has to judge angles. No full pies.
+- Thresholds are drawn, not just stated: a dashed reference line on a line chart, or a marker on a gauge with the failing side tinted in the critical soft color.
+- Heatmaps shade one hue (the accent) from light to dark. Empty cells are hatched so withheld data is never mistaken for a low value.
+- Funnels and gauges are plain HTML bars, not chart-library drawings, so they print crisply and need no network.
 
 ## Writing
 

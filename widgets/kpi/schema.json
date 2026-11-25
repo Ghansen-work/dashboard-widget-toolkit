@@ -2,10 +2,11 @@
   "title": "KPI",
   "description": "One headline number with an optional change indicator and trend line.",
   "x-use-when": "The user wants a single headline metric at a point in time: a total, count, average, or rate (open AR, tickets this week, win rate).",
-  "x-dont-use-when": "Several values need comparing across categories (use bar_chart) or the user needs individual records (use table).",
+  "x-dont-use-when": "The number is judged against a floor, ceiling, or goal (use gauge), several values need comparing across categories (use bar_chart), or the user needs individual records (use table).",
   "x-sizes": ["S", "M"],
   "x-default-size": "S",
   "x-requires-charts": false,
+  "x-kpi-row": true,
   "x-checks": [
     "Warns when a percent value looks like a whole number (45 instead of 0.45).",
     "Warns when a percent delta looks like a whole number (8.2 instead of 0.082)."

@@ -1,0 +1,21 @@
+{
+  "description": "Gauge range with min above max",
+  "widgets": [
+    {
+      "type": "gauge",
+      "id": "g1",
+      "title": "Fill rate",
+      "format": "percent",
+      "value": 0.94,
+      "target": {
+        "value": 0.95,
+        "kind": "floor"
+      },
+      "range": {
+        "min": 1,
+        "max": 0.5
+      }
+    }
+  ],
+  "expect_error": "must be less than max"
+}

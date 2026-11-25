@@ -1,0 +1,15 @@
+{
+  "type": "line_chart",
+  "id": "margin-by-month",
+  "title": "Gross margin by month, Sep 2025 to Oct 2026",
+  "subtitle": "Commercial and SLED",
+  "size": "full",
+  "format": "percent",
+  "periods": ["Sep 2025", "Oct 2025", "Nov 2025", "Dec 2025", "Jan 2026", "Feb 2026", "Mar 2026", "Apr 2026", "May 2026", "Jun 2026", "Jul 2026", "Aug 2026", "Sep 2026", "Oct 2026"],
+  "series": [
+    { "name": "Commercial", "values": [0.121, 0.118, 0.126, 0.131, 0.114, null, null, 0.122, 0.127, 0.133, 0.129, 0.124, 0.137, 0.141] },
+    { "name": "SLED", "values": [0.094, 0.089, 0.097, 0.102, 0.088, null, null, 0.091, 0.086, 0.079, 0.083, 0.092, 0.098, 0.101] }
+  ],
+  "reference_lines": [{ "label": "Policy floor", "value": 0.08 }],
+  "note": "Feb and Mar 2026 are withheld while the cost restatement is under review."
+}

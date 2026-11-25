@@ -1,0 +1,17 @@
+{
+  "description": "Gauge margin and floor as whole numbers",
+  "widgets": [
+    {
+      "type": "gauge",
+      "id": "g1",
+      "title": "Gross margin",
+      "format": "percent",
+      "value": 15,
+      "target": {
+        "value": 8,
+        "kind": "floor"
+      }
+    }
+  ],
+  "expect_warning": "Percent values are fractions"
+}

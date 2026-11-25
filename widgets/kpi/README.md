@@ -6,7 +6,7 @@ One headline number with an optional change indicator and trend line.
 
 **Use when:** The user wants a single headline metric at a point in time: a total, count, average, or rate (open AR, tickets this week, win rate).
 
-**Don't use when:** Several values need comparing across categories (use bar_chart) or the user needs individual records (use table).
+**Don't use when:** The number is judged against a floor, ceiling, or goal (use gauge), several values need comparing across categories (use bar_chart), or the user needs individual records (use table).
 
 **Sizes:** S (default), M
 

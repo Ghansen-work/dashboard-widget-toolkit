@@ -1,0 +1,21 @@
+{
+  "description": "Donut given shares instead of raw amounts",
+  "widgets": [
+    {
+      "type": "donut",
+      "id": "d1",
+      "title": "Revenue mix",
+      "slices": [
+        {
+          "label": "Commercial",
+          "value": 0.62
+        },
+        {
+          "label": "SLED",
+          "value": 0.38
+        }
+      ]
+    }
+  ],
+  "expect_warning": "look like shares"
+}

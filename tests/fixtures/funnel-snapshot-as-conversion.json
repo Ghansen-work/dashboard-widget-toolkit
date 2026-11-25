@@ -1,0 +1,25 @@
+{
+  "description": "Current counts per step sent as a conversion funnel",
+  "widgets": [
+    {
+      "type": "funnel",
+      "id": "f1",
+      "title": "Orders by step",
+      "stages": [
+        {
+          "label": "Ordered",
+          "value": 184
+        },
+        {
+          "label": "Awaiting receipt",
+          "value": 412
+        },
+        {
+          "label": "Received",
+          "value": 96
+        }
+      ]
+    }
+  ],
+  "expect_warning": "\"mode\": \"snapshot\""
+}

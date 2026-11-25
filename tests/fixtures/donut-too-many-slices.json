@@ -1,0 +1,41 @@
+{
+  "description": "Donut with seven slices",
+  "widgets": [
+    {
+      "type": "donut",
+      "id": "d1",
+      "title": "Revenue by KPA",
+      "slices": [
+        {
+          "label": "A",
+          "value": 70
+        },
+        {
+          "label": "B",
+          "value": 60
+        },
+        {
+          "label": "C",
+          "value": 50
+        },
+        {
+          "label": "D",
+          "value": 40
+        },
+        {
+          "label": "E",
+          "value": 30
+        },
+        {
+          "label": "F",
+          "value": 20
+        },
+        {
+          "label": "G",
+          "value": 10
+        }
+      ]
+    }
+  ],
+  "expect_error": "allows at most 6 items"
+}

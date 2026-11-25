@@ -1,0 +1,50 @@
+{
+  "description": "Fourteen monthly periods in vertical bars",
+  "widgets": [
+    {
+      "type": "bar_chart",
+      "id": "b1",
+      "title": "Margin by month",
+      "size": "full",
+      "format": "percent",
+      "categories": [
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep 26",
+        "Oct 26"
+      ],
+      "series": [
+        {
+          "name": "Margin",
+          "values": [
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            null,
+            null,
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ]
+        }
+      ]
+    }
+  ],
+  "expect_warning": "use line_chart"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "donut",
+  "id": "open-lines-by-class",
+  "title": "Open order lines by item class",
+  "subtitle": "All branches, as of today",
+  "size": "M",
+  "format": "integer",
+  "center_label": "Open lines",
+  "slices": [
+    { "label": "Client devices", "value": 1284 },
+    { "label": "Networking", "value": 612 },
+    { "label": "Audio visual", "value": 377 },
+    { "label": "Software licenses", "value": 241 },
+    { "label": "Other", "value": 96 }
+  ]
+}

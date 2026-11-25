@@ -1,0 +1,68 @@
+{
+  "title": "Gauge",
+  "description": "One headline number measured against a floor, ceiling, or goal, with a bar showing where it sits and whether it passes.",
+  "x-use-when": "A single metric judged against a threshold or target: margin vs a policy floor, GP attainment vs quota, fill rate vs target, days to ship vs a maximum.",
+  "x-dont-use-when": "There is no threshold or target (use kpi), several values need comparing (use bar_chart), or the metric's history matters more than where it stands now (use line_chart with a reference line).",
+  "x-sizes": ["S", "M"],
+  "x-default-size": "S",
+  "x-requires-charts": false,
+  "x-kpi-row": true,
+  "x-checks": [
+    "Warns when a percent value, target, or range looks like a whole number (45 instead of 0.45).",
+    "Error when range.min is not below range.max.",
+    "Warns when the value or target falls outside range (the bar is clipped).",
+    "Warns when warning_within is set on a goal (it only applies to floors and ceilings)."
+  ],
+  "type": "object",
+  "required": ["value", "target"],
+  "properties": {
+    "value": {
+      "type": ["number", "null"],
+      "description": "The metric as a raw number. Use null when there is no data and explain why in note."
+    },
+    "format": {
+      "type": "string",
+      "enum": ["number", "integer", "currency", "percent"],
+      "default": "number",
+      "description": "How value, target, and range are displayed. percent expects fractions: 0.15 shows as 15%."
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "kind"],
+      "description": "The threshold the value is judged against.",
+      "properties": {
+        "value": {
+          "type": "number",
+          "description": "The threshold as a raw number in the same format as value, e.g. 0.08 for an 8% floor."
+        },
+        "kind": {
+          "type": "string",
+          "enum": ["floor", "ceiling", "goal"],
+          "description": "floor: at or above is good, below fails (margin floor). ceiling: at or below is good, above fails (max days to ship). goal: progress toward a number; reaching it is good, falling short is shown as progress, not failure (quota)."
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 24,
+          "description": "Name of the threshold, e.g. \"KPA policy floor\" or \"Q4 quota\". Default: the kind (\"floor\", \"ceiling\", \"goal\")."
+        },
+        "warning_within": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Floors and ceilings only: how close to the threshold, on the passing side, counts as a warning, in the value's units. 0.02 with an 8% floor makes 8% to 10% amber."
+        }
+      }
+    },
+    "range": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["min", "max"],
+      "description": "Optional scale for the bar. Default: 0 to a round number above the value and target.",
+      "properties": {
+        "min": { "type": "number", "description": "Left end of the bar." },
+        "max": { "type": "number", "description": "Right end of the bar." }
+      }
+    }
+  }
+}
